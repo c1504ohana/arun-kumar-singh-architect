@@ -16,6 +16,16 @@ in Hyderabad, with delivered work spanning residential, institutional, and
 commercial projects across Bihar and Telangana.
 </p>
 
+<h2>Services</h2>
+
+<ul>
+  <li>Architecture — residential &amp; commercial</li>
+  <li>Interior Design — residential, commercial &amp; office</li>
+  <li>Town Planning</li>
+  <li>Structural &amp; Engineering Consultancy</li>
+  <li>Valuation Services</li>
+</ul>
+
 <h2>Credentials &amp; Recognition</h2>
 
 <p>Registered Architect, Council of Architecture, Registration No. CA/81/6231.</p>
