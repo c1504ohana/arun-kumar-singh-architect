@@ -3,11 +3,16 @@ layout: default
 ---
 <article class="project">
   <h1>{{ page.title }}</h1>
-  <p class="project__meta">{{ page.year }} &middot; {{ page.location }}</p>
+  {% if page.year or page.location %}
+  <p class="project__meta">{% if page.year %}{{ page.year }}{% endif %}{% if page.year and page.location %} &middot; {% endif %}{% if page.location %}{{ page.location }}{% endif %}</p>
+  {% endif %}
   {% if page.image %}
     <img class="project__image" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
   {% endif %}
   <div class="project__body">
     {{ content }}
   </div>
+  {% if page.map_url %}
+    <p class="project__map-link"><a href="{{ page.map_url }}" target="_blank" rel="noopener">View on Google Maps</a></p>
+  {% endif %}
 </article>

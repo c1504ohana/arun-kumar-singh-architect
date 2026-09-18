@@ -20,7 +20,7 @@ title: Home
         <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
       {% endif %}
       <h3>{{ project.title }}</h3>
-      <p>{{ project.year }}</p>
+      {% if project.year %}<p>{{ project.year }}</p>{% endif %}
     </a>
   {% endfor %}
   </div>
