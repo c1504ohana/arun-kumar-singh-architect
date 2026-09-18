@@ -494,12 +494,15 @@ git commit -m "Build home page with full-bleed hero and featured projects"
 - Create: `about.md`
 - Create: `contact.md`
 
+**Note:** both files include an explicit `permalink:` in front matter. Without it, Jekyll builds a root-level page named `about.md` to `_site/about.html`, not `_site/about/index.html` — this was discovered and fixed the same way for `projects.md` in Task 4 (verified: `_config.yml` has no global page permalink style, only a collection-scoped one for `_projects`). Without this, the nav's `/about/` and `/contact/` links (from Task 2) would 404.
+
 - [ ] **Step 1: Write the About page**
 
 ```markdown
 ---
 layout: default
 title: About
+permalink: /about/
 ---
 
 <h1>About</h1>
@@ -523,6 +526,7 @@ light, and material.
 ---
 layout: default
 title: Contact
+permalink: /contact/
 ---
 
 <h1>Contact</h1>
