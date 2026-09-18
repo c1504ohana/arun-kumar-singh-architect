@@ -22,10 +22,17 @@ light, and material.
 
 <p>Registered Architect, Council of Architecture, Registration No. CA/81/6231.</p>
 
+<h3>Professional Credential</h3>
+
 <ul>
   <li><a href="{{ '/assets/certificates/dda-architect-empanelment-certificate.pdf' | relative_url }}">Delhi Development Authority — Architect Empanelment Certificate</a></li>
+</ul>
+
+<h3>Business Registration (Hyderabad office)</h3>
+
+<ul>
   <li><a href="{{ '/assets/certificates/gst-registration-certificate.pdf' | relative_url }}">GST Registration Certificate (Vision Architects &amp; Project Consultant)</a></li>
-  <li><a href="{{ '/assets/certificates/ghmc-trade-license.pdf' | relative_url }}">GHMC Trade License (Hyderabad office)</a></li>
+  <li><a href="{{ '/assets/certificates/ghmc-trade-license.pdf' | relative_url }}">GHMC Trade License</a></li>
 </ul>
 
 <h3>External Profiles</h3>

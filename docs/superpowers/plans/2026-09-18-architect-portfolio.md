@@ -406,7 +406,7 @@ git commit -m "Add projects listing page"
 - Modify: `index.md`
 - Modify: `assets/css/style.css`
 
-**Note:** the hero `<img>` uses `relative_url` (unlike an earlier draft of this plan) — every other asset/link in the codebase goes through this filter, and Task 8 sets a non-empty `baseurl` for the GitHub Pages project-site URL, so an unfiltered absolute path would 404 in production. The `.hero` CSS below also uses a viewport-breakout technique rather than a negative margin matched to `main`'s padding — the negative-margin approach only cancels `main`'s own padding and does not reach the actual viewport edge on screens wider than `main`'s 1100px `max-width`, failing the design spec's "full-bleed" requirement on typical desktop widths.
+**Note:** the hero `<img>` uses `relative_url` (unlike an earlier draft of this plan) — every other asset/link in the codebase goes through this filter, and Task 11 sets a non-empty `baseurl` for the GitHub Pages project-site URL, so an unfiltered absolute path would 404 in production. The `.hero` CSS below also uses a viewport-breakout technique rather than a negative margin matched to `main`'s padding — the negative-margin approach only cancels `main`'s own padding and does not reach the actual viewport edge on screens wider than `main`'s 1100px `max-width`, failing the design spec's "full-bleed" requirement on typical desktop widths.
 
 **Known, deferred duplication:** the `project-grid__item` card markup in this task's "Recent Work" loop is identical to the one in `projects.md` (Task 4), differing only by `limit:3`. This is a real DRY gap (now has two call sites) but extracting a shared `_includes/project-card.html` is out of scope for this task — it's not something either task asked for, and doing it here would be an unplanned refactor. Track it as a candidate cleanup for a future pass; not required before shipping.
 
@@ -812,10 +812,17 @@ Append this to the end of `about.md` (after the existing bio paragraph, before n
 
 <p>Registered Architect, Council of Architecture, Registration No. CA/81/6231.</p>
 
+<h3>Professional Credential</h3>
+
 <ul>
   <li><a href="{{ '/assets/certificates/dda-architect-empanelment-certificate.pdf' | relative_url }}">Delhi Development Authority — Architect Empanelment Certificate</a></li>
+</ul>
+
+<h3>Business Registration (Hyderabad office)</h3>
+
+<ul>
   <li><a href="{{ '/assets/certificates/gst-registration-certificate.pdf' | relative_url }}">GST Registration Certificate (Vision Architects &amp; Project Consultant)</a></li>
-  <li><a href="{{ '/assets/certificates/ghmc-trade-license.pdf' | relative_url }}">GHMC Trade License (Hyderabad office)</a></li>
+  <li><a href="{{ '/assets/certificates/ghmc-trade-license.pdf' | relative_url }}">GHMC Trade License</a></li>
 </ul>
 
 <h3>External Profiles</h3>
@@ -883,7 +890,72 @@ git commit -m "Add certificates, office locations, and firm branding"
 
 ---
 
-## Task 9: README for future maintenance
+## Task 9: Mobile responsiveness
+
+**Context:** Most visitors to this site will be on a mobile browser, not desktop. The site already has a correct viewport meta tag (`_layouts/default.html`, from Task 2) and the project grid is already responsive (`repeat(auto-fill, minmax(260px, 1fr))` naturally collapses to one column on narrow screens). But several rules assume desktop width: the nav is a single-row flex with `justify-content: space-between` that will crowd or overflow with the brand name plus 4 links on a ~360px-wide phone; the hero image is `60vh` tall, which eats most of the visible screen in mobile portrait orientation; the hero caption's `<h1>` inherits the site's default heading size, which can crowd the caption's fixed padding on a narrow screen; and the About page's portrait photo uses `float: left` at a fixed 220px width, which leaves very little room for the bio text to wrap next to it on a narrow screen.
+
+**Files:**
+- Modify: `assets/css/style.css` (append a mobile breakpoint, no changes to existing desktop rules)
+
+- [ ] **Step 1: Add a mobile breakpoint**
+
+Append to `assets/css/style.css`:
+
+```css
+@media (max-width: 640px) {
+  .site-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .site-nav__links a {
+    margin-left: 0;
+    margin-right: 1rem;
+  }
+
+  main {
+    padding: 0 1.25rem 2rem;
+  }
+
+  .hero__image {
+    height: 40vh;
+  }
+
+  .hero__caption {
+    padding: 1.25rem;
+  }
+
+  .hero__caption h1 {
+    font-size: 1.5rem;
+  }
+
+  .about__portrait {
+    float: none;
+    display: block;
+    margin: 0 auto 1rem;
+  }
+}
+```
+
+- [ ] **Step 2: Build and verify**
+
+Run: `bundle exec jekyll build`
+Expected: build succeeds with no errors (this is a pure CSS addition, so Jekyll's output HTML is unchanged — verify by confirming `_site/assets/css/style.css` contains the new `@media (max-width: 640px)` block appended after all existing rules, with none of the existing desktop rules modified or removed).
+
+Since there's no automated test suite, also do a manual visual check: open `_site/index.html`, `_site/about/index.html`, and `_site/projects/index.html` in a browser and resize the window below 640px wide (or use browser dev tools' device toolbar set to a phone width like 375px). Confirm: the nav stacks vertically without overflowing horizontally, the hero image doesn't dominate the whole screen, the hero caption text fits comfortably within the gradient overlay, and the About page's portrait sits centered above the bio text rather than being squeezed beside it.
+
+- [ ] **Step 3: Commit**
+
+```bash
+git add assets/css/style.css
+git commit -m "Add mobile breakpoint for nav, hero, and about portrait"
+```
+
+---
+
+## Task 10: README for future maintenance
 
 **Files:**
 - Create: `README.md`
@@ -947,7 +1019,7 @@ git commit -m "Add README with maintenance instructions"
 
 ---
 
-## Task 8: Publish to GitHub Pages
+## Task 11: Publish to GitHub Pages
 
 **Files:** none (repository and hosting configuration only)
 
