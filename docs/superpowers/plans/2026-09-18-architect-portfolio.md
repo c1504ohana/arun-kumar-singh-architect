@@ -842,7 +842,7 @@ permalink: /contact/
 <p>
 For general inquiries, reach out at
 <a href="mailto:aks78800@gmail.com">aks78800@gmail.com</a>
-or call +91 9234731417.
+or call +91 92347 31417 / +91 87892 18757.
 </p>
 
 <h2>Patna Office</h2>
