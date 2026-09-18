@@ -574,7 +574,316 @@ git commit -m "Add About and Contact pages"
 
 ---
 
-## Task 7: README for future maintenance
+## Task 7: Replace sample projects with real delivered projects
+
+**Context:** Real project names and Google Maps links for 8 delivered projects were provided after Tasks 1-6 were built and reviewed. Precise street addresses and completion years were not provided for these — rather than fabricate them, each project gets a `location: Patna, Bihar` (all 8 are Patna-area projects per context; one is literally named "ISKCON Temple Patna") and a `map_url` link to the actual Google Maps listing instead of asserting an unverified address. No `year` is set (unknown) — this requires the `project.html` layout and the two grid loops (`projects.md`, `index.md`) to treat `year`/`location` as optional, which they don't today (Task 3 hardcoded `{{ page.year }} &middot; {{ page.location }}` with no guard, and Task 4/5 always render `<p>{{ project.year }}</p>` even if blank).
+
+**Files:**
+- Delete: `_projects/riverside-residence.md`, `_projects/oakview-office.md`, `_projects/pavilion-house.md` (fictional placeholders, no longer needed now real projects exist)
+- Create: `_projects/narayan-medical-college-hospital.md`, `_projects/iskcon-temple-patna.md`, `_projects/shiva-enclave.md`, `_projects/issyoga-msmb-bhawan.md`, `_projects/carmel-high-school.md`, `_projects/dhirendra-shree-apartment.md`, `_projects/sheetal-chaya-apartment.md`, `_projects/aero-green-city.md`
+- Modify: `_layouts/project.html` (guard `year`/`location`, add optional `map_url` link)
+- Modify: `projects.md` (guard `year` in the grid loop, add a closing note about 100+ residential projects)
+- Modify: `index.md` (guard `year` in the featured-projects loop, same as `projects.md`)
+
+- [ ] **Step 1: Delete the 3 placeholder project files**
+
+```bash
+git rm _projects/riverside-residence.md _projects/oakview-office.md _projects/pavilion-house.md
+```
+
+- [ ] **Step 2: Update the project detail layout to make year/location optional and support a map link**
+
+Replace `_layouts/project.html` with:
+
+```html
+---
+layout: default
+---
+<article class="project">
+  <h1>{{ page.title }}</h1>
+  {% if page.year or page.location %}
+  <p class="project__meta">{% if page.year %}{{ page.year }}{% endif %}{% if page.year and page.location %} &middot; {% endif %}{% if page.location %}{{ page.location }}{% endif %}</p>
+  {% endif %}
+  {% if page.image %}
+    <img class="project__image" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+  {% endif %}
+  <div class="project__body">
+    {{ content }}
+  </div>
+  {% if page.map_url %}
+    <p class="project__map-link"><a href="{{ page.map_url }}" target="_blank" rel="noopener">View on Google Maps</a></p>
+  {% endif %}
+</article>
+```
+
+- [ ] **Step 3: Add map-link styling**
+
+Append to `assets/css/style.css`:
+
+```css
+.project__map-link a {
+  font-weight: 500;
+}
+```
+
+- [ ] **Step 4: Create the 8 real project files**
+
+`_projects/narayan-medical-college-hospital.md`:
+```markdown
+---
+title: Narayan Medical College & Hospital
+location: Patna, Bihar
+map_url: https://maps.app.goo.gl/7zfiwTSL3VRwuYfX9
+---
+
+Delivered project by Arun Kumar Singh / A. K. & Associates.
+```
+
+`_projects/iskcon-temple-patna.md`:
+```markdown
+---
+title: ISKCON Temple Patna
+location: Patna, Bihar
+map_url: https://maps.app.goo.gl/6aiV1ojqCwLA4Ske8
+---
+
+Delivered project by Arun Kumar Singh / A. K. & Associates.
+```
+
+`_projects/shiva-enclave.md`:
+```markdown
+---
+title: Shiva Enclave
+location: Patna, Bihar
+map_url: https://maps.app.goo.gl/4FRg6AxDZATwQyew7
+---
+
+Delivered project by Arun Kumar Singh / A. K. & Associates.
+```
+
+`_projects/issyoga-msmb-bhawan.md`:
+```markdown
+---
+title: Issyoga MSMB Bhawan
+location: Patna, Bihar
+map_url: https://maps.app.goo.gl/fAysxRrocpfhmyWi6
+---
+
+Delivered project by Arun Kumar Singh / A. K. & Associates.
+```
+
+`_projects/carmel-high-school.md`:
+```markdown
+---
+title: Carmel High School
+location: Patna, Bihar
+map_url: https://maps.app.goo.gl/p2cvQhneY61t5t5r5
+---
+
+Delivered project by Arun Kumar Singh / A. K. & Associates.
+```
+
+`_projects/dhirendra-shree-apartment.md`:
+```markdown
+---
+title: Dhirendra Shree Apartment
+location: Patna, Bihar
+map_url: https://maps.app.goo.gl/DbtkkVMCScLtrKij8
+---
+
+Delivered project by Arun Kumar Singh / A. K. & Associates.
+```
+
+`_projects/sheetal-chaya-apartment.md`:
+```markdown
+---
+title: Sheetal Chaya Apartment
+location: Patna, Bihar
+map_url: https://maps.app.goo.gl/81v9ho1ZWqYQp3Q28
+---
+
+Delivered project by Arun Kumar Singh / A. K. & Associates.
+```
+
+`_projects/aero-green-city.md`:
+```markdown
+---
+title: Aero Green City
+location: Patna, Bihar
+map_url: https://maps.app.goo.gl/ttLrePzGFCHja79q8
+---
+
+Delivered project by Arun Kumar Singh / A. K. & Associates.
+```
+
+None of these 8 files set `image` (no photos supplied yet) — the existing `{% if page.image %}` guard in the layout already handles that gracefully, no image tag will render.
+
+- [ ] **Step 5: Guard `year` in the projects listing page and add the "100+ projects" note**
+
+In `projects.md`, replace:
+
+```liquid
+    <h3>{{ project.title }}</h3>
+    <p>{{ project.year }}</p>
+```
+
+with:
+
+```liquid
+    <h3>{{ project.title }}</h3>
+    {% if project.year %}<p>{{ project.year }}</p>{% endif %}
+```
+
+And add this paragraph right after the `<h1>Projects</h1>` line, before the `<div class="project-grid">`:
+
+```html
+<p>Plus 100+ residential projects completed across Patna and Hyderabad.</p>
+```
+
+- [ ] **Step 6: Guard `year` in the home page's featured-projects loop**
+
+In `index.md`, replace:
+
+```liquid
+      <h3>{{ project.title }}</h3>
+      <p>{{ project.year }}</p>
+```
+
+with:
+
+```liquid
+      <h3>{{ project.title }}</h3>
+      {% if project.year %}<p>{{ project.year }}</p>{% endif %}
+```
+
+- [ ] **Step 7: Build and verify**
+
+Run: `bundle exec jekyll build`
+Expected: `_site/projects/` contains 8 detail pages (one per new project, at slugs matching the filenames above — e.g. `_site/projects/iskcon-temple-patna/index.html`), each containing the title, "Patna, Bihar", a "View on Google Maps" link pointing at the correct `maps.app.goo.gl` URL, and no `&middot;` with a blank year on either side. `_site/projects/index.html` contains the "100+ residential projects" sentence and 8 grid items (not 3). `_site/index.html`'s "Recent Work" section still shows exactly 3 (via `limit:3`), pulled from whichever 3 of the 8 real projects Jekyll orders first — no blank `<p></p>` for the missing year.
+
+- [ ] **Step 8: Commit**
+
+```bash
+git add _projects _layouts/project.html projects.md index.md assets/css/style.css
+git commit -m "Replace sample projects with 8 real delivered projects"
+```
+
+---
+
+## Task 8: Certificates, office locations, and firm branding
+
+**Context:** Arun Kumar Singh operates two registered practices: **A. K. & Associates** in Patna (his original, COA-registered practice, registration No. CA/81/6231) and **Vision Architects & Project Consultant** in Hyderabad (a newer registration, GSTIN 36ACEPS3085K1Z6). Per explicit user decision, the site's tagline shows both firm names alongside his personal name (which remains the page `<h1>`/site title). Per explicit user decision, all 3 supplied certificate PDFs are published (a DDA architect empanelment certificate — the genuine professional credential — plus a GST registration certificate and a GHMC trade license, both business/tax registration documents for the Hyderabad office). Contact details use his originally-given personal email for general inquiries and the Hyderabad firm's own email for that office specifically, per explicit user decision.
+
+**Files:**
+- Create: `assets/certificates/dda-architect-empanelment-certificate.pdf` (copied from `/Users/amitkumar/Downloads/Empanelment of architect.pdf`)
+- Create: `assets/certificates/gst-registration-certificate.pdf` (copied from `/Users/amitkumar/Downloads/8c46f75e-ff8b-4c7d-af92-7846b31557f2.pdf`)
+- Create: `assets/certificates/ghmc-trade-license.pdf` (copied from `/Users/amitkumar/Downloads/ProvisionalCertificate-43.pdf`)
+- Modify: `_config.yml` (tagline)
+- Modify: `about.md` (add Credentials & Recognition section)
+- Modify: `contact.md` (add both office blocks)
+
+- [ ] **Step 1: Copy the 3 certificate PDFs into the repo**
+
+```bash
+mkdir -p assets/certificates
+cp "/Users/amitkumar/Downloads/Empanelment of architect.pdf" assets/certificates/dda-architect-empanelment-certificate.pdf
+cp "/Users/amitkumar/Downloads/8c46f75e-ff8b-4c7d-af92-7846b31557f2.pdf" assets/certificates/gst-registration-certificate.pdf
+cp "/Users/amitkumar/Downloads/ProvisionalCertificate-43.pdf" assets/certificates/ghmc-trade-license.pdf
+```
+
+- [ ] **Step 2: Update the site tagline in `_config.yml`**
+
+Find this line:
+```yaml
+tagline: Architecture that responds to place and light
+```
+
+Replace it with (uses a literal middle-dot character `·`, not an HTML entity — `_config.yml` is a YAML data file, and its value gets injected into HTML via `{{ site.tagline }}` without escaping, so a literal Unicode character renders correctly and matches how the value should look as a plain string):
+```yaml
+tagline: "A. K. & Associates (Patna) · Vision Architects & Project Consultant (Hyderabad)"
+```
+
+- [ ] **Step 3: Add a Credentials & Recognition section to `about.md`**
+
+Append this to the end of `about.md` (after the existing bio paragraph, before nothing else — it's the last content in the file):
+
+```markdown
+<h2>Credentials &amp; Recognition</h2>
+
+<p>Registered Architect, Council of Architecture, Registration No. CA/81/6231.</p>
+
+<ul>
+  <li><a href="{{ '/assets/certificates/dda-architect-empanelment-certificate.pdf' | relative_url }}">Delhi Development Authority — Architect Empanelment Certificate</a></li>
+  <li><a href="{{ '/assets/certificates/gst-registration-certificate.pdf' | relative_url }}">GST Registration Certificate (Vision Architects &amp; Project Consultant)</a></li>
+  <li><a href="{{ '/assets/certificates/ghmc-trade-license.pdf' | relative_url }}">GHMC Trade License (Hyderabad office)</a></li>
+</ul>
+
+<h3>External Profiles</h3>
+
+<ul>
+  <li><a href="https://www.justdial.com/Patna/A-K-Associates-Back-Side-Harihar-Chamber-Boring-Road/0612PX612-X612-130627165350-P4D8DC_BZDET" target="_blank" rel="noopener">A. K. &amp; Associates on JustDial</a></li>
+  <li><a href="https://indianinstituteofarchitects.com/wp-content/uploads/2026/06/BIHAR-CHAPTER-1.pdf" target="_blank" rel="noopener">Indian Institute of Architects — Bihar Chapter</a></li>
+</ul>
+```
+
+- [ ] **Step 4: Add both office blocks to `contact.md`**
+
+Replace the entire body of `contact.md` (keep the front matter) with:
+
+```markdown
+---
+layout: default
+title: Contact
+permalink: /contact/
+---
+
+<h1>Contact</h1>
+
+<p>
+For general inquiries, reach out at
+<a href="mailto:aks78800@gmail.com">aks78800@gmail.com</a>
+or call +91 9234731417.
+</p>
+
+<h2>Patna Office</h2>
+<p>
+A. K. &amp; Associates<br>
+Landline: 0612-2230172<br>
+<a href="https://maps.app.goo.gl/p7oADzeHyxG3aDSG6" target="_blank" rel="noopener">View on Google Maps</a>
+</p>
+
+<h2>Hyderabad Office</h2>
+<p>
+Vision Architects &amp; Project Consultant<br>
+H.No. 2-3-59/1, Mann Nivas, 2nd Floor, Main Road, Amberpet, Hyderabad, Telangana 500013<br>
+Email: <a href="mailto:visionarchitecthyd@gmail.com">visionarchitecthyd@gmail.com</a><br>
+<a href="https://maps.app.goo.gl/KBk8zVcuf2Dx83zF7" target="_blank" rel="noopener">View on Google Maps</a>
+</p>
+```
+
+- [ ] **Step 5: Add heading styles if needed**
+
+The existing `h1, h2, h3` CSS rule from Task 2 already styles all heading levels (Playfair Display, bold) — no new CSS is needed for the `<h2>`/`<h3>` headings added in Steps 3 and 4. Skip adding any CSS in this step; just confirm (by visual inspection of the built HTML) that the existing rule applies to the new headings too.
+
+- [ ] **Step 6: Build and verify**
+
+Run: `bundle exec jekyll build`
+Expected:
+- `_site/assets/certificates/dda-architect-empanelment-certificate.pdf`, `gst-registration-certificate.pdf`, and `ghmc-trade-license.pdf` all exist (Jekyll copies non-Markdown files verbatim into `_site/`).
+- `_site/about/index.html` contains "Credentials &amp; Recognition", the COA registration number, links to all 3 PDFs (with `relative_url`-correct paths), and the JustDial/IIA external links.
+- `_site/contact/index.html` contains both "Patna Office" and "Hyderabad Office" headings, the mailto links for both emails, the phone numbers, and both Google Maps links.
+- `_site/index.html`'s hero caption now shows the updated tagline with both firm names.
+
+- [ ] **Step 7: Commit**
+
+```bash
+git add assets/certificates _config.yml about.md contact.md
+git commit -m "Add certificates, office locations, and firm branding"
+```
+
+---
+
+## Task 9: README for future maintenance
 
 **Files:**
 - Create: `README.md`
