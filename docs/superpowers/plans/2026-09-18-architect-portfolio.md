@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build and publish a free, static Jekyll portfolio site for architect Arun Kumar Singh, hosted on GitHub Pages under the `karan-shergill` GitHub account.
+**Goal:** Build and publish a free, static Jekyll portfolio site for architect Arun Kumar Singh, hosted on GitHub Pages under the `c1504ohana` GitHub account.
 
 **Architecture:** A Jekyll site with a shared layout (`_layouts/default.html`) wrapping four top-level pages (Home, Projects, About, Contact), plus a `_projects` collection where each Markdown file is one portfolio project. GitHub Pages builds the site natively from `main` on every push — no CI config, no backend, no database.
 
@@ -951,7 +951,7 @@ git commit -m "Add README with maintenance instructions"
 
 **Files:** none (repository and hosting configuration only)
 
-- [ ] **Step 1: Switch `gh` CLI auth to the `karan-shergill` account**
+- [ ] **Step 1: Switch `gh` CLI auth to the `c1504ohana` account**
 
 The `gh` CLI in this environment is currently authenticated as a different account. Before continuing, run (interactively, in your own terminal):
 
@@ -959,36 +959,36 @@ The `gh` CLI in this environment is currently authenticated as a different accou
 gh auth login
 ```
 
-Follow the prompts to log in as `karan-shergill`. Then verify:
+Follow the prompts to log in as `c1504ohana`. Then verify:
 
 ```bash
 gh auth status
 ```
 
-Expected: shows `karan-shergill` as the active `github.com` account.
+Expected: shows `c1504ohana` as the active `github.com` account.
 
 - [ ] **Step 2: Create the GitHub repo and push**
 
 ```bash
-gh repo create karan-shergill/arun-kumar-singh-architect --public --source=. --remote=origin --push
+gh repo create c1504ohana/arun-kumar-singh-architect --public --source=. --remote=origin --push
 ```
 
-Expected: creates the repo under `karan-shergill`, adds it as the `origin` remote, and pushes the existing `main` branch with all committed history.
+Expected: creates the repo under `c1504ohana`, adds it as the `origin` remote, and pushes the existing `main` branch with all committed history.
 
 - [ ] **Step 3: Enable GitHub Pages**
 
-Go to `https://github.com/karan-shergill/arun-kumar-singh-architect/settings/pages` and under "Build and deployment", set Source to "Deploy from a branch", Branch to `main`, folder `/ (root)`, then Save.
+Go to `https://github.com/c1504ohana/arun-kumar-singh-architect/settings/pages` and under "Build and deployment", set Source to "Deploy from a branch", Branch to `main`, folder `/ (root)`, then Save.
 
-(Equivalent via CLI, if preferred: `gh api repos/karan-shergill/arun-kumar-singh-architect/pages -X POST -f "source[branch]=main" -f "source[path]=/"`)
+(Equivalent via CLI, if preferred: `gh api repos/c1504ohana/arun-kumar-singh-architect/pages -X POST -f "source[branch]=main" -f "source[path]=/"`)
 
 - [ ] **Step 4: Verify the live site**
 
-Wait 1-2 minutes, then open `https://karan-shergill.github.io/arun-kumar-singh-architect/` in a browser.
+Wait 1-2 minutes, then open `https://c1504ohana.github.io/arun-kumar-singh-architect/` in a browser.
 Expected: the full-bleed hero home page loads, and Projects/About/Contact links all work.
 
 - [ ] **Step 5: Set `baseurl` for the project-site path and re-verify**
 
-The site is served at `https://karan-shergill.github.io/arun-kumar-singh-architect/` — a path, not the domain root. Every link/asset path in this plan uses Jekyll's `relative_url` filter specifically so this works, but only once `baseurl` matches. Update `_config.yml`:
+The site is served at `https://c1504ohana.github.io/arun-kumar-singh-architect/` — a path, not the domain root. Every link/asset path in this plan uses Jekyll's `relative_url` filter specifically so this works, but only once `baseurl` matches. Update `_config.yml`:
 
 ```yaml
 baseurl: "/arun-kumar-singh-architect"
@@ -1002,7 +1002,7 @@ git commit -m "Set baseurl for GitHub Pages project site"
 git push
 ```
 
-Wait 1-2 minutes, reload `https://karan-shergill.github.io/arun-kumar-singh-architect/`, and confirm styling now loads (CSS was previously 404ing at the wrong path) and nav links work.
+Wait 1-2 minutes, reload `https://c1504ohana.github.io/arun-kumar-singh-architect/`, and confirm styling now loads (CSS was previously 404ing at the wrong path) and nav links work.
 
 **Note for later:** when a custom domain is added (see README), the site will be served at the domain root again — `baseurl` must be reset to `""` at that time, or all links will 404.
 

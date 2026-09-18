@@ -4,7 +4,7 @@ email: aks78800@gmail.com
 description: Portfolio of architect Arun Kumar Singh.
 url: ""
 baseurl: ""
-repository: karan-shergill/arun-kumar-singh-architect
+repository: c1504ohana/arun-kumar-singh-architect
 
 exclude:
   - docs

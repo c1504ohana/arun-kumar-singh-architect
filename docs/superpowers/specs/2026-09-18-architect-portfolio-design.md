@@ -10,11 +10,11 @@ A free-forever, low-maintenance static portfolio website for Arun Kumar Singh, h
 
 ## Hosting & Repo
 
-- Public GitHub repository under the `karan-shergill` GitHub account.
+- Public GitHub repository under the `c1504ohana` GitHub account.
 - Repo name: `arun-kumar-singh-architect`.
 - Public visibility is required for free GitHub Pages on a personal (non-Pro) account. No sensitive data lives in the repo — only content meant to be publicly viewable.
 - GitHub Pages builds the site natively from Jekyll on every push to `main` — no GitHub Actions workflow needed.
-- Live URL initially: `https://karan-shergill.github.io/arun-kumar-singh-architect/`.
+- Live URL initially: `https://c1504ohana.github.io/arun-kumar-singh-architect/`.
 - Custom domain: not yet purchased. Once bought (~$10-15/yr for a `.com` via Cloudflare Registrar or Namecheap), add a `CNAME` file to the repo root and point DNS (A/ALIAS or CNAME record depending on registrar) at GitHub Pages. GitHub auto-provisions a free SSL certificate for the custom domain. This is a follow-up step, not part of initial build.
 
 ## Tech Stack
