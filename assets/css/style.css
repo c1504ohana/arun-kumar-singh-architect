@@ -61,3 +61,15 @@ main {
   color: var(--color-text);
   opacity: 0.7;
 }
+
+.project__image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.project__meta {
+  opacity: 0.7;
+  margin-top: -0.5rem;
+}
