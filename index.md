@@ -4,7 +4,7 @@ title: Home
 ---
 
 <section class="hero">
-  <img class="hero__image" src="/assets/images/placeholder-hero.jpg" alt="{{ site.title }}">
+  <img class="hero__image" src="{{ '/assets/images/placeholder-hero.jpg' | relative_url }}" alt="{{ site.title }}">
   <div class="hero__caption">
     <h1>{{ site.title }}</h1>
     <p>{{ site.tagline }}</p>
