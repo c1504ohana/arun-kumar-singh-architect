@@ -85,6 +85,44 @@ title: Home
   </div>
 </section>
 
+<section class="architecture-principles page-width">
+  <div class="architecture-principles__intro">
+    <div>
+      <p class="eyebrow">Architecture, considered</p>
+      <h2>Design begins before<br>the first line is drawn.</h2>
+    </div>
+    <div class="architecture-principles__copy">
+      <p>
+        Architecture is the careful shaping of space around people&mdash;how
+        they arrive, move, gather, work, rest, and adapt over time.
+      </p>
+      <p>
+        In the climates of Bihar and Telangana, good design must also work
+        with sunlight, shade, ventilation, monsoon rain, local materials,
+        and the realities of construction. These practical decisions are
+        what make a building comfortable, efficient, and enduring.
+      </p>
+    </div>
+  </div>
+  <div class="architecture-principles__grid">
+    <article>
+      <span>01</span>
+      <h3>Climate &amp; light</h3>
+      <p>Orientation, shading, daylight, and natural ventilation are considered from the earliest plans.</p>
+    </article>
+    <article>
+      <span>02</span>
+      <h3>Flow &amp; function</h3>
+      <p>Clear circulation and well-proportioned rooms make spaces intuitive, useful, and easy to inhabit.</p>
+    </article>
+    <article>
+      <span>03</span>
+      <h3>Material &amp; longevity</h3>
+      <p>Durable materials and buildable details help architecture age well and remain practical to maintain.</p>
+    </article>
+  </div>
+</section>
+
 <section class="section page-width">
   <div class="section-heading section-heading--services">
     <div>
@@ -116,11 +154,6 @@ title: Home
       <span>04</span>
       <h3>Engineering Consultancy</h3>
       <p>Practical structural and technical coordination for confident project delivery.</p>
-    </article>
-    <article class="service-item">
-      <span>05</span>
-      <h3>Valuation</h3>
-      <p>Professional property valuation backed by decades of built-environment experience.</p>
     </article>
   </div>
 </section>
