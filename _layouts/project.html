@@ -1,20 +1,50 @@
 ---
 layout: default
 ---
-<article class="project">
-  <h1>{{ page.title }}</h1>
-  {% capture meta %}{% if page.category %}{{ page.category }}|{% endif %}{% if page.year %}{{ page.year }}|{% endif %}{% if page.location %}{{ page.location }}|{% endif %}{% endcapture %}
-  {% assign meta_parts = meta | split: "|" | where_exp: "item", "item != ''" %}
-  {% if meta_parts.size > 0 %}
-  <p class="project__meta">{{ meta_parts | join: " &middot; " }}</p>
-  {% endif %}
-  {% if page.image %}
-    <img class="project__image" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
-  {% endif %}
-  <div class="project__body">
-    {{ content }}
+<article class="project-detail">
+  <header class="project-detail__header page-width">
+    <a class="back-link" href="{{ '/projects/' | relative_url }}"><span aria-hidden="true">&larr;</span> All projects</a>
+    {% if page.category %}<p class="eyebrow">{{ page.category }}</p>{% endif %}
+    <div class="project-detail__title">
+      <h1>{{ page.title }}</h1>
+      <div class="project-detail__meta">
+        {% if page.location %}<p><span>Location</span>{{ page.location }}</p>{% endif %}
+        {% if page.year %}<p><span>Year</span>{{ page.year }}</p>{% endif %}
+      </div>
+    </div>
+  </header>
+
+  <div class="project-detail__visual page-width">
+    {% if page.image %}
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    {% else %}
+      <div class="project-blueprint">
+        <span class="project-blueprint__grid"></span>
+        <span class="project-blueprint__circle"></span>
+        <span class="project-blueprint__plane project-blueprint__plane--one"></span>
+        <span class="project-blueprint__plane project-blueprint__plane--two"></span>
+        <span class="project-blueprint__plane project-blueprint__plane--three"></span>
+        <span class="project-blueprint__label">{{ page.location }}</span>
+        <span class="project-blueprint__index">AKS / Project Study</span>
+      </div>
+    {% endif %}
   </div>
-  {% if page.map_url %}
-    <p class="project__map-link"><a href="{{ page.map_url }}" target="_blank" rel="noopener">View on Google Maps</a></p>
-  {% endif %}
+
+  <section class="project-detail__content page-width">
+    <div>
+      <p class="eyebrow">Project overview</p>
+      <div class="project-detail__body">{{ content }}</div>
+    </div>
+    <aside>
+      <p class="eyebrow">Details</p>
+      <dl>
+        {% if page.category %}<div><dt>Type</dt><dd>{{ page.category }}</dd></div>{% endif %}
+        {% if page.location %}<div><dt>Location</dt><dd>{{ page.location }}</dd></div>{% endif %}
+        <div><dt>Practice</dt><dd>A. K. &amp; Associates</dd></div>
+      </dl>
+      {% if page.map_url %}
+        <a class="button button--dark" href="{{ page.map_url }}" target="_blank" rel="noopener">View on Google Maps</a>
+      {% endif %}
+    </aside>
+  </section>
 </article>

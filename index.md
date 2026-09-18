@@ -3,63 +3,135 @@ layout: default
 title: Home
 ---
 
-<section class="hero">
-  <div class="hero__inner">
-    <h1>{{ site.title }}</h1>
-    <p class="hero__tagline">{{ site.tagline }}</p>
+<section class="home-hero">
+  <div class="home-hero__inner page-width">
+    <div class="home-hero__copy">
+      <p class="eyebrow">Architecture &middot; Planning &middot; Interiors</p>
+      <h1>Spaces shaped for <em>how life unfolds.</em></h1>
+      <p class="home-hero__lead">
+        Context-aware architecture for homes, institutions, and communities
+        across Bihar and Telangana.
+      </p>
+      <div class="home-hero__actions">
+        <a class="button button--primary" href="{{ '/projects/' | relative_url }}">Explore selected work</a>
+        <a class="text-link" href="{{ '/about/' | relative_url }}">Meet the practice <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+    <div class="architectural-study" aria-label="Abstract architectural composition">
+      <span class="architectural-study__grid"></span>
+      <span class="architectural-study__sun"></span>
+      <span class="architectural-study__building architectural-study__building--one"></span>
+      <span class="architectural-study__building architectural-study__building--two"></span>
+      <span class="architectural-study__building architectural-study__building--three"></span>
+      <span class="architectural-study__line"></span>
+      <span class="architectural-study__note">Form / Function / Context</span>
+      <span class="architectural-study__index">01</span>
+    </div>
   </div>
 </section>
 
-<section class="home-intro">
-  <p class="home-intro__lead">
-    Arun Kumar Singh brings decades of architectural practice to residential,
-    institutional, and commercial projects across Bihar and Telangana — from
-    concept through construction.
-  </p>
-
-  <div class="stats">
-    <div class="stats__item">
-      <div class="stats__number">100+</div>
-      <div class="stats__label">Residential Projects</div>
+<section class="practice-strip">
+  <div class="practice-strip__inner page-width">
+    <div class="practice-strip__intro">
+      <p class="eyebrow">Established practice</p>
+      <p>From first sketch to final detail, every project balances clarity, utility, and a lasting sense of place.</p>
     </div>
-    <div class="stats__item">
-      <div class="stats__number">2</div>
-      <div class="stats__label">Offices — Patna &amp; Hyderabad</div>
+    <div class="practice-strip__stat">
+      <strong>100<span>+</span></strong>
+      <p>Residential projects delivered</p>
     </div>
-    <div class="stats__item">
-      <div class="stats__number">CA/81/6231</div>
-      <div class="stats__label">Council of Architecture Registration</div>
+    <div class="practice-strip__stat">
+      <strong>02</strong>
+      <p>Studios in Patna &amp; Hyderabad</p>
     </div>
-  </div>
-
-  <div class="home-intro__cta">
-    <a class="button button--primary" href="{{ '/projects/' | relative_url }}">View Projects</a>
-    <a class="button button--secondary" href="{{ '/contact/' | relative_url }}">Get in Touch</a>
+    <div class="practice-strip__stat practice-strip__stat--registration">
+      <strong>CA/81/6231</strong>
+      <p>Council of Architecture</p>
+    </div>
   </div>
 </section>
 
-<section class="home-services">
-  <h2 class="section-label">What We Do</h2>
-  <div class="services-grid">
-    <div class="services-grid__item">
+<section class="section page-width">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Selected work</p>
+      <h2>Built around people<br>and place.</h2>
+    </div>
+    <a class="text-link" href="{{ '/projects/' | relative_url }}">View all projects <span aria-hidden="true">&rarr;</span></a>
+  </div>
+  <div class="project-grid project-grid--featured">
+    {% assign featured_projects = site.projects | where: "featured", true %}
+    {% for project in featured_projects %}
+      {% include project-card.html project=project index=forloop.index0 %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="studio-statement">
+  <div class="studio-statement__inner page-width">
+    <p class="eyebrow eyebrow--light">A considered approach</p>
+    <blockquote>
+      Good architecture does more than occupy land.
+      It creates <em>belonging.</em>
+    </blockquote>
+    <div class="studio-statement__detail">
+      <span class="studio-statement__rule"></span>
+      <p>
+        Led by Arun Kumar Singh, the practice works across residential,
+        educational, healthcare, cultural, and township projects&mdash;bringing
+        local understanding and technical rigor to every scale.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section page-width">
+  <div class="section-heading section-heading--services">
+    <div>
+      <p class="eyebrow">Our expertise</p>
+      <h2>One practice.<br>Every project stage.</h2>
+    </div>
+    <p>
+      A joined-up design service, from early feasibility and planning
+      through interiors, engineering coordination, and delivery.
+    </p>
+  </div>
+  <div class="services-list">
+    <article class="service-item">
+      <span>01</span>
       <h3>Architecture</h3>
-      <p>Residential &amp; commercial design, from concept to completion.</p>
-    </div>
-    <div class="services-grid__item">
+      <p>Residential, institutional, cultural, and commercial design from concept to completion.</p>
+    </article>
+    <article class="service-item">
+      <span>02</span>
       <h3>Interior Design</h3>
-      <p>Residential, commercial, and office interiors.</p>
-    </div>
-    <div class="services-grid__item">
+      <p>Thoughtful residential, workplace, and commercial interiors shaped around daily use.</p>
+    </article>
+    <article class="service-item">
+      <span>03</span>
       <h3>Town Planning</h3>
-      <p>Layout and planning for larger developments.</p>
-    </div>
-    <div class="services-grid__item">
+      <p>Clear, connected masterplans and layouts for larger communities and developments.</p>
+    </article>
+    <article class="service-item">
+      <span>04</span>
       <h3>Engineering Consultancy</h3>
-      <p>Structural and engineering support.</p>
-    </div>
-    <div class="services-grid__item">
+      <p>Practical structural and technical coordination for confident project delivery.</p>
+    </article>
+    <article class="service-item">
+      <span>05</span>
       <h3>Valuation</h3>
-      <p>Property valuation services.</p>
-    </div>
+      <p>Professional property valuation backed by decades of built-environment experience.</p>
+    </article>
+  </div>
+</section>
+
+<section class="home-contact page-width">
+  <div>
+    <p class="eyebrow">Patna &middot; Hyderabad</p>
+    <h2>Planning something<br>worth building?</h2>
+  </div>
+  <div class="home-contact__action">
+    <p>Tell us about your site, your ambitions, and the way you want the space to work.</p>
+    <a class="button button--dark" href="{{ '/contact/' | relative_url }}">Discuss your project</a>
   </div>
 </section>

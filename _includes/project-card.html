@@ -1,10 +1,23 @@
-{% assign card_colors = "card-teal,card-orange,card-dark" | split: "," %}
-{% assign color_idx = include.index | modulo: 3 %}
-{% assign color_class = card_colors[color_idx] %}
-<a class="project-grid__item {% unless include.project.image %}{{ color_class }}{% endunless %}" href="{{ include.project.url | relative_url }}">
-  {% if include.project.image %}
-    <img src="{{ include.project.image | relative_url }}" alt="{{ include.project.title }}">
-  {% endif %}
-  <h3>{{ include.project.title }}</h3>
-  {% if include.project.category %}<p>{{ include.project.category }}</p>{% endif %}
+{% assign variant = include.index | modulo: 4 %}
+{% assign project_number = include.index | plus: 1 %}
+<a class="project-card project-card--{{ variant }}" href="{{ include.project.url | relative_url }}">
+  <div class="project-card__visual">
+    {% if include.project.image %}
+      <img src="{{ include.project.image | relative_url }}" alt="">
+    {% else %}
+      <span class="project-card__grid" aria-hidden="true"></span>
+      <span class="project-card__form project-card__form--one" aria-hidden="true"></span>
+      <span class="project-card__form project-card__form--two" aria-hidden="true"></span>
+      <span class="project-card__arc" aria-hidden="true"></span>
+    {% endif %}
+    <span class="project-card__number">{% if project_number < 10 %}0{% endif %}{{ project_number }}</span>
+    <span class="project-card__arrow" aria-hidden="true">&#8599;</span>
+  </div>
+  <div class="project-card__content">
+    <div>
+      {% if include.project.category %}<p class="project-card__category">{{ include.project.category }}</p>{% endif %}
+      <h3>{{ include.project.title }}</h3>
+    </div>
+    {% if include.project.location %}<p class="project-card__location">{{ include.project.location }}</p>{% endif %}
+  </div>
 </a>

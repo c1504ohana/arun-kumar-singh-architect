@@ -1,3 +1,33 @@
 <footer class="site-footer">
-  <p>&copy; {{ 'now' | date: "%Y" }} Arun Kumar Singh. All rights reserved.</p>
+  <div class="site-footer__cta page-width">
+    <p class="eyebrow eyebrow--light">Have a space in mind?</p>
+    <div class="site-footer__cta-row">
+      <h2>Let&rsquo;s shape it with purpose.</h2>
+      <a class="text-link text-link--light" href="{{ '/contact/' | relative_url }}">Start a conversation <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+  <div class="site-footer__base page-width">
+    <div class="site-footer__brand">
+      <span class="site-footer__mark">AKS</span>
+      <p>Architecture grounded in context,<br>crafted for everyday life.</p>
+    </div>
+    <div class="site-footer__offices">
+      <div>
+        <span>Patna</span>
+        <p>A. K. &amp; Associates</p>
+      </div>
+      <div>
+        <span>Hyderabad</span>
+        <p>Vision Architects &amp;<br>Project Consultant</p>
+      </div>
+    </div>
+    <div class="site-footer__contact">
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      <a href="tel:+919234731417">+91 92347 31417</a>
+    </div>
+  </div>
+  <div class="site-footer__legal page-width">
+    <p>&copy; {{ 'now' | date: "%Y" }} Arun Kumar Singh</p>
+    <p>COA Registration CA/81/6231</p>
+  </div>
 </footer>

@@ -36,17 +36,13 @@ have the information. Add the referenced image to `assets/images/` if you
 have one, then commit and push to `main`. GitHub Pages rebuilds the site
 automatically within a minute or two.
 
-## Replacing placeholder photos
+## Adding project photography
 
-The About page portrait is a real photo (`assets/images/arun-portrait.jpg`).
-Still missing:
-- `assets/images/placeholder-hero.jpg` (home page hero) — until a real photo
-  is added, this image tag fails silently (no broken-image icon) rather than
-  breaking the layout
-- an `image:` field for each of the 8 real projects in `_projects/` (none have photos yet)
-
-The bio paragraph in `about.md` is also still placeholder text and should be
-replaced with a real bio before launch.
+The site uses an architectural graphic treatment whenever a project does not
+have photography. To replace a graphic with a real project image, add the
+image under `assets/images/` and set the project's `image:` front matter to
+its path. The About page portrait is stored at
+`assets/images/arun-portrait.jpg`.
 
 ## Certificates
 
