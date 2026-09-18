@@ -983,23 +983,37 @@ Create a new file in `_projects/`, e.g. `_projects/my-new-project.md`:
 ```markdown
 ---
 title: My New Project
-year: 2026
 location: City, State
 image: /assets/images/my-new-project.jpg
+map_url: https://maps.app.goo.gl/your-link-here
 ---
 
 Description of the project goes here.
 ```
 
-Add the referenced image to `assets/images/`, then commit and push to `main`.
-GitHub Pages rebuilds the site automatically within a minute or two.
+`year`, `location`, `image`, and `map_url` are all optional — the layout only
+renders what's present, so it's fine to leave any of them out if you don't
+have the information. Add the referenced image to `assets/images/` if you
+have one, then commit and push to `main`. GitHub Pages rebuilds the site
+automatically within a minute or two.
 
-## Replacing placeholder content
+## Replacing placeholder photos
 
-Before launch, replace:
-- `assets/images/placeholder-hero.jpg` and the 3 sample project images in `assets/images/`
-- The bio text in `about.md`
-- The 3 sample entries in `_projects/` (or keep them and add more)
+The site currently references some image paths that don't have real files
+behind them yet — add real photos at these exact paths (or update the
+front matter / `<img>` tags to point elsewhere):
+- `assets/images/placeholder-hero.jpg` (home page hero)
+- `assets/images/placeholder-portrait.jpg` (About page)
+- an `image:` field for each of the 8 real projects in `_projects/` (none have photos yet)
+
+The bio paragraph in `about.md` is also still placeholder text and should be
+replaced with a real bio before launch.
+
+## Certificates
+
+PDFs under `assets/certificates/` are linked from the About page's
+"Credentials & Recognition" section. To add or replace one, drop the PDF in
+that folder and update the corresponding link in `about.md`.
 
 ## Custom domain
 
