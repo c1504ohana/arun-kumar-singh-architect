@@ -8,14 +8,12 @@ permalink: /about/
 
 <img class="about__portrait" src="{{ '/assets/images/placeholder-portrait.jpg' | relative_url }}" alt="Arun Kumar Singh">
 
+<!-- TODO: replace with a full bio once real copy is available -->
 <p>
-PLACEHOLDER CONTENT — replace with real bio before launch.
-</p>
-
-<p>
-Arun Kumar Singh is an architect based in Texas, with a practice focused on
-residential and small-scale commercial work that responds carefully to site,
-light, and material.
+Arun Kumar Singh is a Council of Architecture-registered architect practicing
+as A. K. &amp; Associates in Patna and Vision Architects &amp; Project Consultant
+in Hyderabad, with delivered work spanning residential, institutional, and
+commercial projects across Bihar and Telangana.
 </p>
 
 <h2>Credentials &amp; Recognition</h2>
