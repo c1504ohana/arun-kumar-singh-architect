@@ -3,10 +3,17 @@ layout: default
 title: Home
 ---
 
-<section class="home-hero">
+<section class="home-hero" data-home-slideshow>
+  <div class="home-hero__slides" aria-hidden="true">
+    <img class="home-hero__slide home-hero__slide--tower is-active" src="{{ '/assets/images/home-slides/construction-tower.webp' | relative_url }}" alt="" fetchpriority="high">
+    <img class="home-hero__slide home-hero__slide--concrete" src="{{ '/assets/images/home-slides/concrete-structure.webp' | relative_url }}" alt="" loading="lazy">
+    <img class="home-hero__slide home-hero__slide--site" src="{{ '/assets/images/home-slides/construction-site.webp' | relative_url }}" alt="" loading="lazy">
+    <img class="home-hero__slide home-hero__slide--plan" src="{{ '/assets/images/home-slides/architectural-plan.webp' | relative_url }}" alt="" loading="lazy">
+  </div>
+  <div class="home-hero__shade" aria-hidden="true"></div>
   <div class="home-hero__inner page-width">
     <div class="home-hero__copy">
-      <p class="eyebrow">Architecture &middot; Planning &middot; Interiors</p>
+      <p class="eyebrow eyebrow--light">Arun Kumar Singh &middot; Architect &amp; Planner</p>
       <h1>Spaces shaped for <em>how life unfolds.</em></h1>
       <p class="home-hero__lead">
         Context-aware architecture for homes, institutions, and communities
@@ -14,18 +21,16 @@ title: Home
       </p>
       <div class="home-hero__actions">
         <a class="button button--primary" href="{{ '/projects/' | relative_url }}">Explore selected work</a>
-        <a class="text-link" href="{{ '/about/' | relative_url }}">Meet the practice <span aria-hidden="true">&rarr;</span></a>
+        <a class="text-link text-link--light" href="{{ '/about/' | relative_url }}">Meet the practice <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
-    <div class="architectural-study" aria-label="Abstract architectural composition">
-      <span class="architectural-study__grid"></span>
-      <span class="architectural-study__sun"></span>
-      <span class="architectural-study__building architectural-study__building--one"></span>
-      <span class="architectural-study__building architectural-study__building--two"></span>
-      <span class="architectural-study__building architectural-study__building--three"></span>
-      <span class="architectural-study__line"></span>
-      <span class="architectural-study__note">Form / Function / Context</span>
-      <span class="architectural-study__index">01</span>
+    <div class="home-hero__controls">
+      <button type="button" data-slide-prev aria-label="Show previous image">&larr;</button>
+      <span data-slide-status>01 / 04</span>
+      <button type="button" data-slide-next aria-label="Show next image">&rarr;</button>
+      <button class="home-hero__toggle" type="button" data-slide-toggle aria-label="Pause image slideshow">
+        <span data-slide-toggle-label>Pause</span>
+      </button>
     </div>
   </div>
 </section>

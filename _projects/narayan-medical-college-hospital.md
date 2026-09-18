@@ -4,6 +4,7 @@ location: Patna, Bihar
 map_url: https://maps.app.goo.gl/7zfiwTSL3VRwuYfX9
 category: Healthcare
 featured: true
+image: /assets/images/gallery/medical-college/medical-college-03.webp
 ---
 
 A healthcare facility delivered by A. K. & Associates, supporting medical

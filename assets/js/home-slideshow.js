@@ -1,0 +1,95 @@
+(() => {
+  const slideshow = document.querySelector("[data-home-slideshow]");
+
+  if (!slideshow) {
+    return;
+  }
+
+  const slides = [...slideshow.querySelectorAll(".home-hero__slide")];
+  const previousButton = slideshow.querySelector("[data-slide-prev]");
+  const nextButton = slideshow.querySelector("[data-slide-next]");
+  const toggleButton = slideshow.querySelector("[data-slide-toggle]");
+  const toggleLabel = slideshow.querySelector("[data-slide-toggle-label]");
+  const status = slideshow.querySelector("[data-slide-status]");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let currentIndex = 0;
+  let timer;
+  let isPaused = reduceMotion.matches;
+
+  const formatIndex = (index) => String(index + 1).padStart(2, "0");
+
+  const showSlide = (nextIndex) => {
+    currentIndex = (nextIndex + slides.length) % slides.length;
+
+    slides.forEach((slide, index) => {
+      slide.classList.toggle("is-active", index === currentIndex);
+    });
+
+    status.textContent = `${formatIndex(currentIndex)} / ${formatIndex(slides.length - 1)}`;
+  };
+
+  const stopTimer = () => {
+    window.clearInterval(timer);
+    timer = undefined;
+  };
+
+  const startTimer = () => {
+    stopTimer();
+
+    if (!isPaused) {
+      timer = window.setInterval(() => showSlide(currentIndex + 1), 5500);
+    }
+  };
+
+  const restartTimer = () => {
+    startTimer();
+  };
+
+  previousButton.addEventListener("click", () => {
+    showSlide(currentIndex - 1);
+    restartTimer();
+  });
+
+  nextButton.addEventListener("click", () => {
+    showSlide(currentIndex + 1);
+    restartTimer();
+  });
+
+  toggleButton.addEventListener("click", () => {
+    isPaused = !isPaused;
+    toggleLabel.textContent = isPaused ? "Play" : "Pause";
+    toggleButton.setAttribute("aria-label", `${isPaused ? "Play" : "Pause"} image slideshow`);
+    startTimer();
+  });
+
+  slideshow.addEventListener("mouseenter", stopTimer);
+  slideshow.addEventListener("mouseleave", startTimer);
+  slideshow.addEventListener("focusin", stopTimer);
+  slideshow.addEventListener("focusout", () => {
+    window.setTimeout(() => {
+      if (!slideshow.contains(document.activeElement)) {
+        startTimer();
+      }
+    });
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      stopTimer();
+    } else {
+      startTimer();
+    }
+  });
+
+  reduceMotion.addEventListener("change", (event) => {
+    isPaused = event.matches;
+    toggleLabel.textContent = isPaused ? "Play" : "Pause";
+    toggleButton.setAttribute("aria-label", `${isPaused ? "Play" : "Pause"} image slideshow`);
+    startTimer();
+  });
+
+  showSlide(0);
+  toggleLabel.textContent = isPaused ? "Play" : "Pause";
+  toggleButton.setAttribute("aria-label", `${isPaused ? "Play" : "Pause"} image slideshow`);
+  startTimer();
+})();

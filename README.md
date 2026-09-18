@@ -44,6 +44,9 @@ image under `assets/images/` and set the project's `image:` front matter to
 its path. The About page portrait is stored at
 `assets/images/arun-portrait.jpg`.
 
+The categorized project gallery is defined in `gallery.md`, with optimized
+images stored under `assets/images/gallery/`.
+
 ## Certificates
 
 PDFs under `assets/certificates/` are linked from the About page's
