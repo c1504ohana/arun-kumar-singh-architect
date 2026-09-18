@@ -126,3 +126,12 @@ main {
 .home-featured {
   margin-top: 2rem;
 }
+
+.about__portrait {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 4px;
+  float: left;
+  margin: 0 1.5rem 1rem 0;
+}
