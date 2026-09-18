@@ -404,6 +404,11 @@ git commit -m "Add projects listing page"
 
 **Files:**
 - Modify: `index.md`
+- Modify: `assets/css/style.css`
+
+**Note:** the hero `<img>` uses `relative_url` (unlike an earlier draft of this plan) — every other asset/link in the codebase goes through this filter, and Task 8 sets a non-empty `baseurl` for the GitHub Pages project-site URL, so an unfiltered absolute path would 404 in production. The `.hero` CSS below also uses a viewport-breakout technique rather than a negative margin matched to `main`'s padding — the negative-margin approach only cancels `main`'s own padding and does not reach the actual viewport edge on screens wider than `main`'s 1100px `max-width`, failing the design spec's "full-bleed" requirement on typical desktop widths.
+
+**Known, deferred duplication:** the `project-grid__item` card markup in this task's "Recent Work" loop is identical to the one in `projects.md` (Task 4), differing only by `limit:3`. This is a real DRY gap (now has two call sites) but extracting a shared `_includes/project-card.html` is out of scope for this task — it's not something either task asked for, and doing it here would be an unplanned refactor. Track it as a candidate cleanup for a future pass; not required before shipping.
 
 - [ ] **Step 1: Replace the placeholder home page**
 
@@ -414,7 +419,7 @@ title: Home
 ---
 
 <section class="hero">
-  <img class="hero__image" src="/assets/images/placeholder-hero.jpg" alt="{{ site.title }}">
+  <img class="hero__image" src="{{ '/assets/images/placeholder-hero.jpg' | relative_url }}" alt="{{ site.title }}">
   <div class="hero__caption">
     <h1>{{ site.title }}</h1>
     <p>{{ site.tagline }}</p>
@@ -444,7 +449,10 @@ title: Home
 
 .hero {
   position: relative;
-  margin: 0 -2rem 2rem;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-bottom: 2rem;
 }
 
 .hero__image {
