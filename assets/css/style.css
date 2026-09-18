@@ -518,7 +518,7 @@ main {
 
 .practice-strip__inner {
   display: grid;
-  grid-template-columns: 1.55fr repeat(3, 0.75fr);
+  grid-template-columns: 1.45fr repeat(4, 0.64fr);
 }
 
 .practice-strip__inner > div {
@@ -1917,7 +1917,7 @@ html[lang="te"] em {
   }
 
   .practice-strip__inner {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .practice-strip__intro {

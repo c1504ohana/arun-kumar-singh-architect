@@ -29,8 +29,9 @@ permalink: /about/
     <p class="eyebrow">Profile</p>
     <h2>Architecture that is practical, enduring, and distinctly of its place.</h2>
     <p class="about-profile__lead">
-      Arun Kumar Singh is a Council of Architecture-registered architect
-      leading A. K. &amp; Associates in Patna and Vision Architects &amp; Project
+      With more than four decades of professional experience, Arun Kumar
+      Singh is a Council of Architecture-registered architect leading
+      A. K. &amp; Associates in Patna and Vision Architects &amp; Project
       Consultant in Hyderabad.
     </p>
     <p>
@@ -44,8 +45,8 @@ permalink: /about/
       collaboration between client, consultant, and site.
     </p>
     <div class="about-profile__facts">
-      <div><strong>100+</strong><span>Residential projects</span></div>
-      <div><strong>02</strong><span>Regional studios</span></div>
+      <div><strong>40+</strong><span>Years of experience</span></div>
+      <div><strong>500+</strong><span>Projects completed</span></div>
       <div><strong>CA/81/6231</strong><span>COA registration</span></div>
     </div>
   </div>

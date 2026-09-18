@@ -32,7 +32,7 @@ permalink: /contact/
     </div>
     <h2>A. K. &amp;<br>Associates</h2>
     <div class="office-card__details">
-      <p>Architecture, planning, interiors, engineering consultancy, and valuation.</p>
+      <p>Architecture, planning, interiors, structural design, project management, turnkey solutions, statutory consultancy, and valuation.</p>
       <p><a href="tel:+916122230172">0612-2230172</a></p>
     </div>
     <a class="text-link" href="https://maps.app.goo.gl/p7oADzeHyxG3aDSG6" target="_blank" rel="noopener">View on Google Maps <span aria-hidden="true">&#8599;</span></a>
@@ -46,10 +46,12 @@ permalink: /contact/
     <h2>Vision Architects &amp;<br>Project Consultant</h2>
     <div class="office-card__details">
       <address>
-        H.No. 2-3-59/1, Mann Nivas, 2nd Floor,<br>
-        Main Road, Amberpet, Hyderabad 500013
+        H.No. 2-3-59/1, Maan Nivas, 2nd Floor,<br>
+        Main Road, Amberpet, Near Sree Ramana Theatre,<br>
+        Hyderabad, Telangana 500013
       </address>
       <p><a href="mailto:visionarchitecthyd@gmail.com">visionarchitecthyd@gmail.com</a></p>
+      <p><a href="https://www.google.com/maps?q=17.39188,78.51498" target="_blank" rel="noopener">Map coordinates: 17.39188&deg; N, 78.51498&deg; E</a></p>
     </div>
     <a class="text-link text-link--light" href="https://maps.app.goo.gl/KBk8zVcuf2Dx83zF7" target="_blank" rel="noopener">View on Google Maps <span aria-hidden="true">&#8599;</span></a>
   </article>

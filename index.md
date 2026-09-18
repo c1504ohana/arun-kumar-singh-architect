@@ -42,8 +42,12 @@ title: Home
       <p>From first sketch to final detail, every project balances clarity, utility, and a lasting sense of place.</p>
     </div>
     <div class="practice-strip__stat">
-      <strong>100<span>+</span></strong>
-      <p>Residential projects delivered</p>
+      <strong>40<span>+</span></strong>
+      <p>Years of professional experience</p>
+    </div>
+    <div class="practice-strip__stat">
+      <strong>500<span>+</span></strong>
+      <p>Projects completed</p>
     </div>
     <div class="practice-strip__stat">
       <strong>02</strong>
@@ -136,7 +140,8 @@ title: Home
     </div>
     <p>
       A joined-up design service, from early feasibility and planning
-      through interiors, engineering coordination, and delivery.
+      through interiors, engineering coordination, project management,
+      approvals, and delivery.
     </p>
   </div>
   <div class="services-list">
