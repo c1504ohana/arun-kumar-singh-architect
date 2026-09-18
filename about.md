@@ -6,7 +6,7 @@ permalink: /about/
 
 <h1>About</h1>
 
-<img class="about__portrait" src="{{ '/assets/images/placeholder-portrait.jpg' | relative_url }}" alt="Arun Kumar Singh">
+<img class="about__portrait" src="{{ '/assets/images/arun-portrait.jpg' | relative_url }}" alt="Arun Kumar Singh">
 
 <!-- TODO: replace with a full bio once real copy is available -->
 <p>

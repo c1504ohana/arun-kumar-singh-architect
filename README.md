@@ -38,11 +38,11 @@ automatically within a minute or two.
 
 ## Replacing placeholder photos
 
-The site currently references some image paths that don't have real files
-behind them yet — add real photos at these exact paths (or update the
-front matter / `<img>` tags to point elsewhere):
-- `assets/images/placeholder-hero.jpg` (home page hero)
-- `assets/images/placeholder-portrait.jpg` (About page)
+The About page portrait is a real photo (`assets/images/arun-portrait.jpg`).
+Still missing:
+- `assets/images/placeholder-hero.jpg` (home page hero) — until a real photo
+  is added, this image tag fails silently (no broken-image icon) rather than
+  breaking the layout
 - an `image:` field for each of the 8 real projects in `_projects/` (none have photos yet)
 
 The bio paragraph in `about.md` is also still placeholder text and should be
