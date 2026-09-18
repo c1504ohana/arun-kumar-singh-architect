@@ -259,6 +259,55 @@ main {
   gap: 2.1rem;
 }
 
+.site-nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.language-switcher {
+  display: flex;
+  height: 32px;
+  align-items: stretch;
+  border: 1px solid var(--line);
+}
+
+.language-switcher button {
+  min-width: 34px;
+  padding: 0 0.45rem;
+  border: 0;
+  border-right: 1px solid var(--line);
+  background: transparent;
+  color: #62645f;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 600;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.language-switcher button[lang="hi"] {
+  font-family: "Nirmala UI", "Noto Sans Devanagari", "Kohinoor Devanagari", Mangal, sans-serif;
+}
+
+.language-switcher button[lang="te"] {
+  font-family: "Nirmala UI", "Noto Sans Telugu", "Kohinoor Telugu", Gautami, sans-serif;
+}
+
+.language-switcher button:last-child {
+  border-right: 0;
+}
+
+.language-switcher button:hover,
+.language-switcher button:focus-visible {
+  color: var(--ink);
+}
+
+.language-switcher button.is-active {
+  background: var(--ink);
+  color: var(--white);
+}
+
 .site-nav__links a {
   position: relative;
   display: flex;
@@ -1803,7 +1852,66 @@ main {
   margin: 0;
 }
 
+html[lang="hi"] body,
+html[lang="hi"] .language-switcher button[lang="hi"] {
+  font-family: "Nirmala UI", "Noto Sans Devanagari", "Kohinoor Devanagari", Mangal, sans-serif;
+}
+
+html[lang="te"] body,
+html[lang="te"] .language-switcher button[lang="te"] {
+  font-family: "Nirmala UI", "Noto Sans Telugu", "Kohinoor Telugu", Gautami, sans-serif;
+}
+
+html[lang="hi"] h1,
+html[lang="hi"] h2,
+html[lang="hi"] h3,
+html[lang="hi"] blockquote,
+html[lang="hi"] .site-nav__name strong,
+html[lang="hi"] .about-profile__lead,
+html[lang="hi"] .project-detail__body,
+html[lang="te"] h1,
+html[lang="te"] h2,
+html[lang="te"] h3,
+html[lang="te"] blockquote,
+html[lang="te"] .site-nav__name strong,
+html[lang="te"] .about-profile__lead,
+html[lang="te"] .project-detail__body {
+  font-family: "Nirmala UI", "Noto Sans Devanagari", "Noto Sans Telugu", "Kohinoor Devanagari", "Kohinoor Telugu", sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+}
+
+html[lang="hi"] em,
+html[lang="te"] em {
+  font-style: normal;
+}
+
 @media (max-width: 980px) {
+  .site-nav__inner {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0.9rem 0 0.75rem;
+    gap: 0.55rem;
+  }
+
+  .site-nav__actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .language-switcher {
+    height: 44px;
+  }
+
+  .language-switcher button {
+    min-width: 44px;
+  }
+
+  .site-nav__links {
+    gap: 1.25rem;
+  }
+
   .home-hero__inner {
     min-height: 520px;
   }
@@ -1864,14 +1972,22 @@ main {
 
   .site-nav__inner {
     min-height: auto;
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 1rem 0 0.8rem;
-    gap: 1rem;
+    padding: 0.85rem 0 0.65rem;
+    gap: 0.55rem;
   }
 
   .site-nav__name small {
     display: none;
+  }
+
+  .site-nav__actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .language-switcher {
+    align-self: flex-end;
   }
 
   .site-nav__links {
@@ -1889,6 +2005,11 @@ main {
     align-items: center;
     justify-content: center;
     font-size: 0.66rem;
+  }
+
+  html[lang="hi"] .site-nav__links a,
+  html[lang="te"] .site-nav__links a {
+    font-size: 0.62rem;
   }
 
   .site-nav__links a:not(.site-nav__contact)::after {

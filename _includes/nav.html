@@ -7,12 +7,19 @@
         <small>Architect &amp; Planner</small>
       </span>
     </a>
-    <div class="site-nav__links" aria-label="Primary navigation">
-      <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="is-active" aria-current="page"{% endif %}>Home</a>
-      <a href="{{ '/projects/' | relative_url }}" {% if page.url contains '/projects' %}class="is-active" aria-current="page"{% endif %}>Projects</a>
-      <a href="{{ '/gallery/' | relative_url }}" {% if page.url == '/gallery/' %}class="is-active" aria-current="page"{% endif %}>Gallery</a>
-      <a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}class="is-active" aria-current="page"{% endif %}>About</a>
-      <a class="site-nav__contact{% if page.url == '/contact/' %} is-active{% endif %}" href="{{ '/contact/' | relative_url }}" {% if page.url == '/contact/' %}aria-current="page"{% endif %}>Start a project</a>
+    <div class="site-nav__actions">
+      <div class="language-switcher" role="group" aria-label="Choose website language">
+        <button class="is-active" type="button" data-language="en" lang="en" aria-label="View website in English" aria-pressed="true">EN</button>
+        <button type="button" data-language="hi" lang="hi" aria-label="View website in Hindi" aria-pressed="false">हिंदी</button>
+        <button type="button" data-language="te" lang="te" aria-label="View website in Telugu" aria-pressed="false">తెలుగు</button>
+      </div>
+      <div class="site-nav__links" aria-label="Primary navigation">
+        <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="is-active" aria-current="page"{% endif %}>Home</a>
+        <a href="{{ '/projects/' | relative_url }}" {% if page.url contains '/projects' %}class="is-active" aria-current="page"{% endif %}>Projects</a>
+        <a href="{{ '/gallery/' | relative_url }}" {% if page.url == '/gallery/' %}class="is-active" aria-current="page"{% endif %}>Gallery</a>
+        <a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}class="is-active" aria-current="page"{% endif %}>About</a>
+        <a class="site-nav__contact{% if page.url == '/contact/' %} is-active{% endif %}" href="{{ '/contact/' | relative_url }}" {% if page.url == '/contact/' %}aria-current="page"{% endif %}>Start a project</a>
+      </div>
     </div>
   </div>
 </nav>

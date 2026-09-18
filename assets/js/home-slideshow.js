@@ -17,6 +17,13 @@
   let isPaused = reduceMotion.matches;
 
   const formatIndex = (index) => String(index + 1).padStart(2, "0");
+  const translate = (text) => window.siteI18n?.translate(text) || text;
+
+  const updateControlLanguage = () => {
+    const action = isPaused ? "Play" : "Pause";
+    toggleLabel.textContent = translate(action);
+    toggleButton.setAttribute("aria-label", translate(`${action} image slideshow`));
+  };
 
   const loadSlide = (slide) => {
     if (!slide.dataset.src) {
@@ -83,8 +90,7 @@
 
   toggleButton.addEventListener("click", () => {
     isPaused = !isPaused;
-    toggleLabel.textContent = isPaused ? "Play" : "Pause";
-    toggleButton.setAttribute("aria-label", `${isPaused ? "Play" : "Pause"} image slideshow`);
+    updateControlLanguage();
     startTimer();
   });
 
@@ -109,13 +115,13 @@
 
   reduceMotion.addEventListener("change", (event) => {
     isPaused = event.matches;
-    toggleLabel.textContent = isPaused ? "Play" : "Pause";
-    toggleButton.setAttribute("aria-label", `${isPaused ? "Play" : "Pause"} image slideshow`);
+    updateControlLanguage();
     startTimer();
   });
 
+  document.addEventListener("site-language-change", updateControlLanguage);
+
   showSlide(0);
-  toggleLabel.textContent = isPaused ? "Play" : "Pause";
-  toggleButton.setAttribute("aria-label", `${isPaused ? "Play" : "Pause"} image slideshow`);
+  updateControlLanguage();
   startTimer();
 })();
