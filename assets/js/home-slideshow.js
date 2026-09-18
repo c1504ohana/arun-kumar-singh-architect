@@ -18,14 +18,40 @@
 
   const formatIndex = (index) => String(index + 1).padStart(2, "0");
 
+  const loadSlide = (slide) => {
+    if (!slide.dataset.src) {
+      return;
+    }
+
+    slide.sizes = slide.dataset.sizes;
+    slide.srcset = slide.dataset.srcset;
+    slide.src = slide.dataset.src;
+    delete slide.dataset.sizes;
+    delete slide.dataset.srcset;
+    delete slide.dataset.src;
+  };
+
   const showSlide = (nextIndex) => {
-    currentIndex = (nextIndex + slides.length) % slides.length;
+    const resolvedIndex = (nextIndex + slides.length) % slides.length;
+    const nextSlide = slides[resolvedIndex];
 
-    slides.forEach((slide, index) => {
-      slide.classList.toggle("is-active", index === currentIndex);
-    });
+    const activateSlide = () => {
+      currentIndex = resolvedIndex;
 
-    status.textContent = `${formatIndex(currentIndex)} / ${formatIndex(slides.length - 1)}`;
+      slides.forEach((slide, index) => {
+        slide.classList.toggle("is-active", index === currentIndex);
+      });
+
+      status.textContent = `${formatIndex(currentIndex)} / ${formatIndex(slides.length - 1)}`;
+    };
+
+    loadSlide(nextSlide);
+
+    if (nextSlide.complete && nextSlide.naturalWidth > 0) {
+      activateSlide();
+    } else {
+      nextSlide.addEventListener("load", activateSlide, { once: true });
+    }
   };
 
   const stopTimer = () => {

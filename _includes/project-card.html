@@ -3,7 +3,12 @@
 <a class="project-card project-card--{{ variant }}" href="{{ include.project.url | relative_url }}">
   <div class="project-card__visual">
     {% if include.project.image %}
-      <img src="{{ include.project.image | relative_url }}" alt="">
+      <img
+        src="{{ include.project.image_small | default: include.project.image | relative_url }}"
+        {% if include.project.image_small %}srcset="{{ include.project.image_small | relative_url }} 1x, {{ include.project.image | relative_url }} 2x"{% endif %}
+        loading="lazy"
+        decoding="async"
+        alt="">
     {% else %}
       <span class="project-card__grid" aria-hidden="true"></span>
       <span class="project-card__form project-card__form--one" aria-hidden="true"></span>

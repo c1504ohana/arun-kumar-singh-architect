@@ -5,10 +5,10 @@ title: Home
 
 <section class="home-hero" data-home-slideshow>
   <div class="home-hero__slides" aria-hidden="true">
-    <img class="home-hero__slide home-hero__slide--tower is-active" src="{{ '/assets/images/home-slides/construction-tower.webp' | relative_url }}" alt="" fetchpriority="high">
-    <img class="home-hero__slide home-hero__slide--concrete" src="{{ '/assets/images/home-slides/concrete-structure.webp' | relative_url }}" alt="" loading="lazy">
-    <img class="home-hero__slide home-hero__slide--site" src="{{ '/assets/images/home-slides/construction-site.webp' | relative_url }}" alt="" loading="lazy">
-    <img class="home-hero__slide home-hero__slide--plan" src="{{ '/assets/images/home-slides/architectural-plan.webp' | relative_url }}" alt="" loading="lazy">
+    <img class="home-hero__slide home-hero__slide--tower is-active" src="{{ '/assets/images/home-slides/construction-tower-960.webp' | relative_url }}" srcset="{{ '/assets/images/home-slides/construction-tower-960.webp' | relative_url }} 960w, {{ '/assets/images/home-slides/construction-tower.webp' | relative_url }} 1920w" sizes="100vw" width="1920" height="1440" alt="" fetchpriority="high">
+    <img class="home-hero__slide home-hero__slide--concrete" data-src="{{ '/assets/images/home-slides/concrete-structure-960.webp' | relative_url }}" data-srcset="{{ '/assets/images/home-slides/concrete-structure-960.webp' | relative_url }} 960w, {{ '/assets/images/home-slides/concrete-structure.webp' | relative_url }} 1500w" data-sizes="100vw" width="1500" height="2000" alt="">
+    <img class="home-hero__slide home-hero__slide--site" data-src="{{ '/assets/images/home-slides/construction-site-600.webp' | relative_url }}" data-srcset="{{ '/assets/images/home-slides/construction-site-600.webp' | relative_url }} 600w, {{ '/assets/images/home-slides/construction-site.webp' | relative_url }} 850w" data-sizes="100vw" width="850" height="850" alt="">
+    <img class="home-hero__slide home-hero__slide--plan" data-src="{{ '/assets/images/home-slides/architectural-plan-600.webp' | relative_url }}" data-srcset="{{ '/assets/images/home-slides/architectural-plan-600.webp' | relative_url }} 600w, {{ '/assets/images/home-slides/architectural-plan.webp' | relative_url }} 736w" data-sizes="100vw" width="736" height="981" alt="">
   </div>
   <div class="home-hero__shade" aria-hidden="true"></div>
   <div class="home-hero__inner page-width">
@@ -25,9 +25,9 @@ title: Home
       </div>
     </div>
     <div class="home-hero__controls">
-      <button type="button" data-slide-prev aria-label="Show previous image">&larr;</button>
+      <button type="button" data-slide-prev aria-label="Show previous image"><span aria-hidden="true">&larr;</span></button>
       <span data-slide-status>01 / 04</span>
-      <button type="button" data-slide-next aria-label="Show next image">&rarr;</button>
+      <button type="button" data-slide-next aria-label="Show next image"><span aria-hidden="true">&rarr;</span></button>
       <button class="home-hero__toggle" type="button" data-slide-toggle aria-label="Pause image slideshow">
         <span data-slide-toggle-label>Pause</span>
       </button>
