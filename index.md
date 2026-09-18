@@ -14,7 +14,8 @@ title: Home
 <section class="home-featured">
   <h2>Recent Work</h2>
   <div class="project-grid">
-  {% for project in site.projects limit:3 %}
+  {% assign featured_projects = site.projects | where: "featured", true %}
+  {% for project in featured_projects limit:3 %}
     <a class="project-grid__item" href="{{ project.url | relative_url }}">
       {% if project.image %}
         <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
