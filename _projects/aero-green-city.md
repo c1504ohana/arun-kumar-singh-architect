@@ -2,6 +2,7 @@
 title: Aero Green City
 location: Patna, Bihar
 map_url: https://maps.app.goo.gl/ttLrePzGFCHja79q8
+category: Residential Township
 ---
 
-Delivered project by Arun Kumar Singh / A. K. & Associates.
+A residential township development delivered by A. K. & Associates, Patna.

@@ -99,11 +99,68 @@ main {
   margin: 0;
 }
 
-.home-featured {
-  margin-top: 3rem;
+.home-intro {
+  margin-top: 4rem;
+  max-width: 800px;
 }
 
-.home-featured h2 {
+.home-intro__lead {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  font-weight: 500;
+  margin: 0 0 3rem;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.stats__number {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  color: var(--color-orange);
+}
+
+.stats__label {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.home-intro__cta {
+  display: flex;
+  gap: 1rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.85rem 1.75rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.button--primary {
+  background: var(--color-orange);
+  color: var(--color-bg);
+}
+
+.button--secondary {
+  background: transparent;
+  color: var(--color-text);
+  border: 2px solid var(--color-text);
+}
+
+.home-services {
+  margin-top: 4rem;
+}
+
+.section-label {
   font-size: 0.8rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -111,6 +168,23 @@ main {
   font-family: "Inter", sans-serif;
   font-weight: 600;
   margin-bottom: 2rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.services-grid__item h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+}
+
+.services-grid__item p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
 }
 
 .project-grid {

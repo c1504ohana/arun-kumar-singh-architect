@@ -7,6 +7,11 @@ permalink: /contact/
 <h1>Contact</h1>
 
 <p>
+Reach out for architecture, interior design, town planning, or valuation
+consultations across Patna and Hyderabad.
+</p>
+
+<p>
 For general inquiries, reach out at
 <a href="mailto:aks78800@gmail.com">aks78800@gmail.com</a>
 or call +91 92347 31417 / +91 87892 18757.

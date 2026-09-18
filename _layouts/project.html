@@ -3,8 +3,10 @@ layout: default
 ---
 <article class="project">
   <h1>{{ page.title }}</h1>
-  {% if page.year or page.location %}
-  <p class="project__meta">{% if page.year %}{{ page.year }}{% endif %}{% if page.year and page.location %} &middot; {% endif %}{% if page.location %}{{ page.location }}{% endif %}</p>
+  {% capture meta %}{% if page.category %}{{ page.category }}|{% endif %}{% if page.year %}{{ page.year }}|{% endif %}{% if page.location %}{{ page.location }}|{% endif %}{% endcapture %}
+  {% assign meta_parts = meta | split: "|" | where_exp: "item", "item != ''" %}
+  {% if meta_parts.size > 0 %}
+  <p class="project__meta">{{ meta_parts | join: " &middot; " }}</p>
   {% endif %}
   {% if page.image %}
     <img class="project__image" src="{{ page.image | relative_url }}" alt="{{ page.title }}">

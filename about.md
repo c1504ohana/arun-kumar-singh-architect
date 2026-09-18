@@ -16,6 +16,13 @@ in Hyderabad, with delivered work spanning residential, institutional, and
 commercial projects across Bihar and Telangana.
 </p>
 
+<p>
+The practice covers projects at every scale — from individual residences to
+apartment complexes, educational and healthcare institutions, and larger
+township developments — with an emphasis on functional design, contextual
+sensitivity, and long-term durability.
+</p>
+
 <h2>Services</h2>
 
 <ul>
