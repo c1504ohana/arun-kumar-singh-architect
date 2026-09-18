@@ -1,0 +1,23 @@
+title: Arun Kumar Singh
+tagline: Architecture that responds to place and light
+email: aks78800@gmail.com
+description: Portfolio of architect Arun Kumar Singh.
+url: ""
+baseurl: ""
+
+exclude:
+  - docs
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+
+markdown: kramdown
