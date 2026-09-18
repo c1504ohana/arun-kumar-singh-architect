@@ -969,6 +969,10 @@ Static site built with Jekyll, hosted free on GitHub Pages.
 
 ## Preview locally
 
+This step is optional — you can also skip straight to editing files and
+pushing to `main`; GitHub rebuilds the live site automatically either way.
+If you do want to preview changes on your own machine first:
+
 ```bash
 bundle install
 bundle exec jekyll serve
