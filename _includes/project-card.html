@@ -1,0 +1,10 @@
+{% assign card_colors = "card-teal,card-orange,card-dark" | split: "," %}
+{% assign color_idx = include.index | modulo: 3 %}
+{% assign color_class = card_colors[color_idx] %}
+<a class="project-grid__item {% unless include.project.image %}{{ color_class }}{% endunless %}" href="{{ include.project.url | relative_url }}">
+  {% if include.project.image %}
+    <img src="{{ include.project.image | relative_url }}" alt="{{ include.project.title }}">
+  {% endif %}
+  <h3>{{ include.project.title }}</h3>
+  {% if include.project.year %}<p>{{ include.project.year }}</p>{% endif %}
+</a>

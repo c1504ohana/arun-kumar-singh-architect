@@ -4,10 +4,9 @@ title: Home
 ---
 
 <section class="hero">
-  <img class="hero__image" src="{{ '/assets/images/placeholder-hero.jpg' | relative_url }}" alt="{{ site.title }}" onerror="this.style.visibility='hidden';">
-  <div class="hero__caption">
+  <div class="hero__inner">
     <h1>{{ site.title }}</h1>
-    <p>{{ site.tagline }}</p>
+    <p class="hero__tagline">{{ site.tagline }}</p>
   </div>
 </section>
 
@@ -16,13 +15,7 @@ title: Home
   <div class="project-grid">
   {% assign featured_projects = site.projects | where: "featured", true %}
   {% for project in featured_projects limit:3 %}
-    <a class="project-grid__item" href="{{ project.url | relative_url }}">
-      {% if project.image %}
-        <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
-      {% endif %}
-      <h3>{{ project.title }}</h3>
-      {% if project.year %}<p>{{ project.year }}</p>{% endif %}
-    </a>
+    {% include project-card.html project=project index=forloop.index0 %}
   {% endfor %}
   </div>
 </section>
